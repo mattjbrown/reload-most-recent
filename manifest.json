@@ -1,0 +1,13 @@
+{
+    "name": "Reopen Most Recent",
+    "manifest_version": 2,
+    "version": "0.1",
+    "omnibox": { "keyword" : "recent" },
+    "icons": {
+      "16": "regi.png"
+    },
+    "background": {
+      "scripts": ["underscore.min.js", "background.js"]
+    },
+    "permissions": ["history", "tabs"]
+}
