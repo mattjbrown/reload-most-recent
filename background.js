@@ -1,5 +1,5 @@
 chrome.omnibox.onInputEntered.addListener(function(text) {
-        chrome.history.search({ text: text }, function(results) {            
+        chrome.history.search({ maxResults: 10, text: text, startTime: 0 }, function(results) {            
             var prefixesToCheck = ['http://', 'https://', 'http://www.', 'https://www.']; 
             
             var mostRecentForHostname = _.find(results, function (historyItem) {                
@@ -12,8 +12,10 @@ chrome.omnibox.onInputEntered.addListener(function(text) {
                 return hostMatches;
             });
             
-            chrome.tabs.create({ url: mostRecentForHostname.url });
-            chrome.extension.getBackgroundPage().console.log(mostRecentForHostname);
+            if (mostRecentForHostname)
+            {
+                chrome.tabs.create({ url: mostRecentForHostname.url });
+            }
         });
     }
 );
