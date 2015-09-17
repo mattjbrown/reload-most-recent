@@ -1,5 +1,5 @@
 {
-    "name": "Reopen Most Recent",
+    "name": "Reload Most Recent",
     "manifest_version": 2,
     "version": "0.1",
     "omnibox": { "keyword" : "recent" },
